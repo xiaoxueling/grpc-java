@@ -1,6 +1,8 @@
 package com.codenotfound;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +21,7 @@ public class SpringGrpcApplicationTests {
   public void testSayHello() {
     assertThat(helloWorldClient.sayHello("John", "Doe"))
         .isEqualTo("Hello John Doe!");
+
+    Assert.assertEquals(helloWorldClient.add(1,2),1+2);
   }
 }

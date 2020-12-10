@@ -13,3 +13,5 @@ release.properties
 ##Logs##
 *.log
 *.log.*
+/grpc-java-hello-world/grpc-java-hello-world.iml
+/grpc-java-hello-world/.idea

@@ -12,6 +12,16 @@ message Greeting {
   string message = 1;
 }
 
+message AddRequest{
+  int32 one=1;
+  int32 two=2;
+}
+
+message AddResponse{
+  int32 count=1;
+}
+
 service HelloWorldService {
   rpc sayHello (Person) returns (Greeting);
+  rpc add(AddRequest) returns(AddResponse);
 }
