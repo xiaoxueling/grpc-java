@@ -1,18 +1,14 @@
-package com.codenotfound.grpc;
+package com.codenotfound.grpc.helloworld;
 
-import javax.annotation.PostConstruct;
-
-import com.codenotfound.grpc.helloworld.*;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
+
+import javax.annotation.PostConstruct;
 
 @ConfigurationProperties("grpc")
 @Component
@@ -36,9 +32,9 @@ public class HelloWorldClient {
         HelloWorldServiceGrpc.newBlockingStub(managedChannel);
   }
 
-  public String sayHello(String firstName, String lastName) {
+  public String sayHello(String firstName, String lastName, Person.Sex sex) {
     Person person = Person.newBuilder().setFirstName(firstName)
-        .setLastName(lastName).build();
+        .setLastName(lastName).setSex(sex).build();
     LOGGER.info("client sending {}", person);
 
     Greeting greeting =
@@ -46,14 +42,5 @@ public class HelloWorldClient {
     LOGGER.info("client received {}", greeting);
 
     return greeting.getMessage();
-  }
-
-  public int add(int one,int two){
-
-    AddRequest addRequest=AddRequest.newBuilder().setOne(one).setTwo(two).build();
-
-    AddResponse addResponse= helloWorldServiceBlockingStub.add(addRequest);
-
-    return addResponse.getCount();
   }
 }

@@ -1,27 +1,27 @@
 package com.codenotfound;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import com.codenotfound.grpc.helloworld.HelloWorldClient;
+import com.codenotfound.grpc.helloworld.Person;
+import com.codenotfound.grpc.test.TestClient;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import com.codenotfound.grpc.HelloWorldClient;
 
-@RunWith(SpringRunner.class)
+import static org.assertj.core.api.Assertions.assertThat;
+
 @SpringBootTest
 public class SpringGrpcApplicationTests {
 
   @Autowired
   private HelloWorldClient helloWorldClient;
+  @Autowired
+  private TestClient testClient;
 
   @Test
   public void testSayHello() {
-    assertThat(helloWorldClient.sayHello("John", "Doe"))
-        .isEqualTo("Hello John Doe!");
+    assertThat(helloWorldClient.sayHello("John", "Doe", Person.Sex.girl))
+        .isEqualTo("Hello girl John Doe!");
 
-    Assert.assertEquals(helloWorldClient.add(1,2),1+2);
+    assertThat(testClient.add(1,2)==1+2);
   }
 }

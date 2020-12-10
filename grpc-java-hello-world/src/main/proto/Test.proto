@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "google/protobuf/type.proto";
+
+option java_multiple_files = true;
+package com.codenotfound.grpc.test;
+
+message Other{
+  int32 other = 1;
+  google.protobuf.Syntax syntax=2;
+}
+
+message Response{
+  sint32 sum = 1;
+}
+
+message AddRequest{
+  int32 one = 1;
+  int32 two = 2;
+  repeated Other other = 3 [deprecated=true];//标记过时
+}
+
+message AddResponse{
+  int32 count = 1;
+}
+
+service TestService {
+  rpc add(AddRequest) returns(stream AddResponse);
+}
