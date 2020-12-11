@@ -15,3 +15,5 @@ release.properties
 *.log.*
 /grpc-java-hello-world/grpc-java-hello-world.iml
 /grpc-java-hello-world/.idea
+/grpc-java-hello-world/src/main/java/com/codenotfound/grpc/helloworld/grpc
+/grpc-java-hello-world/src/main/java/com/codenotfound/grpc/test/grpc

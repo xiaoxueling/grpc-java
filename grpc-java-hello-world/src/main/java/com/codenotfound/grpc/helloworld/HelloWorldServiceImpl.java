@@ -7,21 +7,21 @@ import org.slf4j.LoggerFactory;
 
 @GRpcService
 public class HelloWorldServiceImpl
-    extends HelloWorldServiceGrpc.HelloWorldServiceImplBase {
+        extends HelloWorldServiceGrpc.HelloWorldServiceImplBase {
 
   private static final Logger LOGGER =
-      LoggerFactory.getLogger(HelloWorldServiceImpl.class);
+          LoggerFactory.getLogger(HelloWorldServiceImpl.class);
 
   @Override
-  public void sayHello(Person request,
-      StreamObserver<Greeting> responseObserver) {
-    LOGGER.info("server received {}", request);
+  public void sayHello(Person request, StreamObserver<Greeting> responseObserver) {
 
-    String message = "Hello " +request.getSex().name()+" "+ request.getFirstName() + " "
-        + request.getLastName() + "!";
-    Greeting greeting =
-        Greeting.newBuilder().setMessage(message).build();
-    LOGGER.info("server responded {}", greeting);
+    LOGGER.info("服务端收到数据 {}", request);
+
+    String message = "Hello " +request.getSex().name()+" "+ request.getFirstName() + " " + request.getLastName() + "!";
+
+    Greeting greeting = Greeting.newBuilder().setMessage(message).build();
+
+    LOGGER.info("服务端回复数据 {}", greeting);
 
     responseObserver.onNext(greeting);
     responseObserver.onCompleted();

@@ -2,28 +2,41 @@ syntax = "proto3";
 
 import "google/protobuf/type.proto";
 
+package test;
+
+option java_package ="com.codenotfound.grpc.test.grpc";//默认同package
+option java_outer_classname="TestProto";
 option java_multiple_files = true;
-package com.codenotfound.grpc.test;
 
 message Other{
   int32 other = 1;
   google.protobuf.Syntax syntax=2;
 }
 
-message Response{
-  sint32 sum = 1;
+message MapValue{
+  sint32 type = 1;
+  sint32 method = 2;
 }
 
+//请求的数据消息
 message AddRequest{
-  int32 one = 1;
-  int32 two = 2;
-  repeated Other other = 3 [deprecated=true];//标记过时
+  int32 one = 1;//第一个值
+  int32 two = 2;//第二个值
+  repeated Other other = 3 [deprecated=true];//过时，不在使用
+  map<int32, MapValue> maps = 4;
+  MapValue mapValue=5;
+  bool result=6;
 }
 
+//返回的消息
 message AddResponse{
-  int32 count = 1;
+  int32 count = 1; //返回的结果
 }
 
+//proto测试服务
 service TestService {
+  //测试 add
   rpc add(AddRequest) returns(stream AddResponse);
+  //测试 SUM
+  rpc sum(stream AddRequest) returns(stream AddResponse);
 }

@@ -19,9 +19,10 @@ public class SpringGrpcApplicationTests {
 
   @Test
   public void testSayHello() {
-    assertThat(helloWorldClient.sayHello("John", "Doe", Person.Sex.girl))
-        .isEqualTo("Hello girl John Doe!");
+    assertThat(helloWorldClient.sayHello("John", "Doe", Person.Sex.girl)).isEqualTo("Hello girl John Doe!");
 
     assertThat(testClient.add(1,2)==1+2);
+
+    testClient.sum();
   }
 }

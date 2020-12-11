@@ -18,28 +18,28 @@ public class HelloWorldClient {
   private int port;
 
   private static final Logger LOGGER =
-      LoggerFactory.getLogger(HelloWorldClient.class);
+          LoggerFactory.getLogger(HelloWorldClient.class);
 
-  private HelloWorldServiceGrpc.HelloWorldServiceBlockingStub helloWorldServiceBlockingStub;
+  private com.codenotfound.grpc.helloworld.HelloWorldServiceGrpc.HelloWorldServiceBlockingStub helloWorldServiceBlockingStub;
 
 
   @PostConstruct
   private void init() {
     ManagedChannel managedChannel = ManagedChannelBuilder
-        .forAddress("localhost", port).usePlaintext().build();
+            .forAddress("localhost", port).usePlaintext().build();
 
     helloWorldServiceBlockingStub =
-        HelloWorldServiceGrpc.newBlockingStub(managedChannel);
+            com.codenotfound.grpc.helloworld.HelloWorldServiceGrpc.newBlockingStub(managedChannel);
   }
 
   public String sayHello(String firstName, String lastName, Person.Sex sex) {
     Person person = Person.newBuilder().setFirstName(firstName)
-        .setLastName(lastName).setSex(sex).build();
-    LOGGER.info("client sending {}", person);
+            .setLastName(lastName).setSex(sex).build();
+    LOGGER.info("客户端发送数据 {}", person);
 
     Greeting greeting =
-        helloWorldServiceBlockingStub.sayHello(person);
-    LOGGER.info("client received {}", greeting);
+            helloWorldServiceBlockingStub.sayHello(person);
+    LOGGER.info("客户端收到数据 {}", greeting);
 
     return greeting.getMessage();
   }
