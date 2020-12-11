@@ -90,6 +90,16 @@ public class TestClient {
 
             LOGGER.info("客户端发送数据 {}",addRequest);
 
+            int count=0;
+            while (count++<10){
+
+                addRequest=AddRequest.newBuilder().setOne(count+10).setTwo(count+12).build();
+                requestObserver.onNext(addRequest);
+                LOGGER.info("客户端发送数据 {}",addRequest);
+
+                Thread.sleep(5000);
+            }
+
             requestObserver.onCompleted();
             LOGGER.info("客户端发送数据结束");
 
