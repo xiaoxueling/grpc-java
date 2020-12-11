@@ -18,7 +18,7 @@ public class SpringGrpcApplicationTests {
   private TestClient testClient;
 
   @Test
-  public void testSayHello() {
+  public void test() {
     assertThat(helloWorldClient.sayHello("John", "Doe",Person.Sex.girl)).isEqualTo("Hello girl John Doe!");
 
     assertThat(testClient.add(1,2)==1+2);

@@ -1,5 +1,8 @@
 package com.codenotfound.grpc.helloworld;
 
+import com.codenotfound.grpc.helloworld.grpc.Greeting;
+import com.codenotfound.grpc.helloworld.grpc.HelloWorldServiceGrpc;
+import com.codenotfound.grpc.helloworld.grpc.Person;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.slf4j.Logger;

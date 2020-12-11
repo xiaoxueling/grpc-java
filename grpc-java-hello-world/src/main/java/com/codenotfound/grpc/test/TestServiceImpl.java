@@ -1,5 +1,8 @@
 package com.codenotfound.grpc.test;
 
+import com.codenotfound.grpc.test.grpc.AddRequest;
+import com.codenotfound.grpc.test.grpc.AddResponse;
+import com.codenotfound.grpc.test.grpc.TestServiceGrpc;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.slf4j.Logger;
