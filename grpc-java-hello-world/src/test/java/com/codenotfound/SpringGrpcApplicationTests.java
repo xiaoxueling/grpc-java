@@ -1,7 +1,7 @@
 package com.codenotfound;
 
 import com.codenotfound.grpc.helloworld.HelloWorldClient;
-import com.codenotfound.grpc.helloworld.Person;
+import com.codenotfound.grpc.helloworld.grpc.Person;
 import com.codenotfound.grpc.test.TestClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class SpringGrpcApplicationTests {
 
   @Test
   public void testSayHello() {
-    assertThat(helloWorldClient.sayHello("John", "Doe", Person.Sex.girl)).isEqualTo("Hello girl John Doe!");
+    assertThat(helloWorldClient.sayHello("John", "Doe",Person.Sex.girl)).isEqualTo("Hello girl John Doe!");
 
     assertThat(testClient.add(1,2)==1+2);
 

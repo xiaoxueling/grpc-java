@@ -1,5 +1,6 @@
 package com.codenotfound.grpc.helloworld;
 
+import com.codenotfound.grpc.helloworld.grpc.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import lombok.Data;
@@ -20,7 +21,7 @@ public class HelloWorldClient {
   private static final Logger LOGGER =
           LoggerFactory.getLogger(HelloWorldClient.class);
 
-  private com.codenotfound.grpc.helloworld.HelloWorldServiceGrpc.HelloWorldServiceBlockingStub helloWorldServiceBlockingStub;
+  private HelloWorldServiceGrpc.HelloWorldServiceBlockingStub helloWorldServiceBlockingStub;
 
 
   @PostConstruct
@@ -29,7 +30,7 @@ public class HelloWorldClient {
             .forAddress("localhost", port).usePlaintext().build();
 
     helloWorldServiceBlockingStub =
-            com.codenotfound.grpc.helloworld.HelloWorldServiceGrpc.newBlockingStub(managedChannel);
+            HelloWorldServiceGrpc.newBlockingStub(managedChannel);
   }
 
   public String sayHello(String firstName, String lastName, Person.Sex sex) {
