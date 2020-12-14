@@ -1,0 +1,6 @@
+grpc:
+  port: 6600
+  netty-server:
+    flow-control-window:
+server:
+  port: 8088

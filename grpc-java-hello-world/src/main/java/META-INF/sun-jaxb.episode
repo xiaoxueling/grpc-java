@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+此文件是由 JavaTM Architecture for XML Binding (JAXB) 引用实现 v2.2.11 生成的
+请访问 <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+在重新编译源模式时, 对此文件的所有修改都将丢失。
+生成时间: 2020.12.14 时间 04:29:20 PM CST 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://webService.codenotfound.com/">
+    <schemaBindings map="false">
+      <package name="com.codenotfound.webService.client"/>
+    </schemaBindings>
+    <bindings scd="~tns:sayHelloWord">
+      <class ref="com.codenotfound.webService.client.SayHelloWord"/>
+    </bindings>
+    <bindings scd="~tns:sayHelloWordResponse">
+      <class ref="com.codenotfound.webService.client.SayHelloWordResponse"/>
+    </bindings>
+  </bindings>
+</bindings>
+

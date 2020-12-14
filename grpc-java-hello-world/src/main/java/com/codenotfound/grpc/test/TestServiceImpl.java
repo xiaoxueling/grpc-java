@@ -8,8 +8,6 @@ import org.lognet.springboot.grpc.GRpcService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.TimeUnit;
-
 @GRpcService
 public class TestServiceImpl extends TestServiceGrpc.TestServiceImplBase {
 
@@ -40,17 +38,6 @@ public class TestServiceImpl extends TestServiceGrpc.TestServiceImplBase {
                 AddResponse response = AddResponse.newBuilder().setCount(addRequest.getOne()+addRequest.getTwo()).build();
                 responseObserver.onNext(response);
                 LOGGER.info("服务端回复数据 {}",response);
-
-                try {
-                    TimeUnit.SECONDS.sleep(2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                response = AddResponse.newBuilder().setCount(addRequest.getOne()+addRequest.getTwo()).build();
-                responseObserver.onNext(response);
-                LOGGER.info("2.服务端回复数据 {}",response);
-
             }
 
             @Override
