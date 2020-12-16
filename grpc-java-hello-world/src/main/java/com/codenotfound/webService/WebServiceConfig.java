@@ -22,16 +22,19 @@ public class WebServiceConfig {
 
     @Bean
     public ServletRegistrationBean<CXFServlet> cfxServlet() {
-        return new ServletRegistrationBean<>(new CXFServlet(), "/webservices/*");
+        ServletRegistrationBean<CXFServlet> servletRegistrationBean=new ServletRegistrationBean<>();
+
+        servletRegistrationBean.setServlet(new CXFServlet());
+        servletRegistrationBean.addUrlMappings("/webservices/*");
+        servletRegistrationBean.setLoadOnStartup(1);
+
+        return servletRegistrationBean;
     }
 
     @Bean
     public Endpoint testEndpoint(){
-
         Endpoint endpoint=new EndpointImpl(bus,testWebService);
-
         endpoint.publish("/test");
-
         return endpoint;
     }
 }
