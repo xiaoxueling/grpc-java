@@ -67,11 +67,6 @@
       <artifactId>cxf-spring-boot-starter-jaxws</artifactId>
       <version>3.4.1</version>
     </dependency>
-    <dependency>
-      <groupId>wsdl4j</groupId>
-      <artifactId>wsdl4j</artifactId>
-    </dependency>
-
   </dependencies>
 
   <build>
@@ -108,36 +103,6 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.jvnet.jaxb2.maven2</groupId>
-        <artifactId>maven-jaxb2-plugin</artifactId>
-        <version>0.12.3</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-        <schemaLanguage>WSDL</schemaLanguage>
-        <generatePackage>com.codenotfound.webService.client</generatePackage>
-        <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-        <schemas>
-          <schema>
-            <fileset>
-              <directory>${project.basedir}/src/main/resources/schemas</directory>
-              <includes>
-                <include>*.wsdl</include>
-              </includes>
-            </fileset>
-            <!--<url>http://localhost:8088/webservice/test?wsdl</url>-->
-          </schema>
-        </schemas>
-      </configuration>
-      </plugin>
     </plugins>
-
   </build>
-
 </project>
