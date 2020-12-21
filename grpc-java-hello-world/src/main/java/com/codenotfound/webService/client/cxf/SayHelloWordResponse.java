@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * &lt;p&gt;sayHelloWordResponse complex type的 Java 类。
+ * &lt;p&gt;sayHelloWordResponse complex type?? Java ??
  * 
- * &lt;p&gt;以下模式片段指定包含在此类中的预期内容。
+ * &lt;p&gt;????????????????????????????????
  * 
  * &lt;pre&gt;
  * &amp;lt;complexType name="sayHelloWordResponse"&amp;gt;
@@ -36,7 +36,7 @@ public class SayHelloWordResponse {
     protected String _return;
 
     /**
-     * 获取return属性的值。
+     * ???return????????
      * 
      * @return
      *     possible object is
@@ -48,7 +48,7 @@ public class SayHelloWordResponse {
     }
 
     /**
-     * 设置return属性的值。
+     * ????return????????
      * 
      * @param value
      *     allowed object is
