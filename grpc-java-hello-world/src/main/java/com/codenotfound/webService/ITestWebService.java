@@ -7,6 +7,6 @@ import javax.jws.WebService;
 @WebService(name = "testWebService")
 public interface ITestWebService {
 
-    @WebMethod(operationName="sayHelloWord")
+    @WebMethod(operationName="sayHelloWord",action = "sayHelloWord")
     String helloWord(@WebParam(name = "data") String requestData);
 }
