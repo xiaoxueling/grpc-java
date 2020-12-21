@@ -259,6 +259,7 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
         _operationClient.addMessageContext(_messageContext);
 
         _operationClient.setCallback(new org.apache.axis2.client.async.AxisCallback() {
+                @Override
                 public void onMessage(
                     org.apache.axis2.context.MessageContext resultContext) {
                     try {
@@ -273,6 +274,7 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                     }
                 }
 
+                @Override
                 public void onError(java.lang.Exception error) {
                     if (error instanceof org.apache.axis2.AxisFault) {
                         org.apache.axis2.AxisFault f = (org.apache.axis2.AxisFault) error;
@@ -338,12 +340,14 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                     }
                 }
 
+                @Override
                 public void onFault(
                     org.apache.axis2.context.MessageContext faultContext) {
                     org.apache.axis2.AxisFault fault = org.apache.axis2.util.Utils.getInboundFaultFromMessageContext(faultContext);
                     onError(fault);
                 }
 
+                @Override
                 public void onComplete() {
                     try {
                         _messageContext.getTransportOut().getSender()
@@ -481,6 +485,7 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
          * @param factory
          * @return org.apache.axiom.om.OMElement
          */
+        @Override
         public org.apache.axiom.om.OMElement getOMElement(
             final javax.xml.namespace.QName parentQName,
             final org.apache.axiom.om.OMFactory factory)
@@ -489,15 +494,17 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                     this, MY_QNAME));
         }
 
+        @Override
         public void serialize(final javax.xml.namespace.QName parentQName,
-            javax.xml.stream.XMLStreamWriter xmlWriter)
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException,
                 org.apache.axis2.databinding.ADBException {
             serialize(parentQName, xmlWriter, false);
         }
 
+        @Override
         public void serialize(final javax.xml.namespace.QName parentQName,
-            javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
+                              javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
             throws javax.xml.stream.XMLStreamException,
                 org.apache.axis2.databinding.ADBException {
             //We can safely assume an element has only one type associated with it
@@ -740,8 +747,9 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                 java.lang.String namespaceuri = "";
 
                 try {
-                    while (!reader.isStartElement() && !reader.isEndElement())
+                    while (!reader.isStartElement() && !reader.isEndElement()) {
                         reader.next();
+                    }
 
                     currentQName = reader.getName();
 
@@ -809,6 +817,7 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
          * @param factory
          * @return org.apache.axiom.om.OMElement
          */
+        @Override
         public org.apache.axiom.om.OMElement getOMElement(
             final javax.xml.namespace.QName parentQName,
             final org.apache.axiom.om.OMFactory factory)
@@ -817,15 +826,17 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                     this, MY_QNAME));
         }
 
+        @Override
         public void serialize(final javax.xml.namespace.QName parentQName,
-            javax.xml.stream.XMLStreamWriter xmlWriter)
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException,
                 org.apache.axis2.databinding.ADBException {
             serialize(parentQName, xmlWriter, false);
         }
 
+        @Override
         public void serialize(final javax.xml.namespace.QName parentQName,
-            javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
+                              javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
             throws javax.xml.stream.XMLStreamException,
                 org.apache.axis2.databinding.ADBException {
             //We can safely assume an element has only one type associated with it
@@ -1068,8 +1079,9 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                 java.lang.String namespaceuri = "";
 
                 try {
-                    while (!reader.isStartElement() && !reader.isEndElement())
+                    while (!reader.isStartElement() && !reader.isEndElement()) {
                         reader.next();
+                    }
 
                     currentQName = reader.getName();
 
@@ -1172,6 +1184,7 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
          * @param factory
          * @return org.apache.axiom.om.OMElement
          */
+        @Override
         public org.apache.axiom.om.OMElement getOMElement(
             final javax.xml.namespace.QName parentQName,
             final org.apache.axiom.om.OMFactory factory)
@@ -1180,15 +1193,17 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                     this, parentQName));
         }
 
+        @Override
         public void serialize(final javax.xml.namespace.QName parentQName,
-            javax.xml.stream.XMLStreamWriter xmlWriter)
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException,
                 org.apache.axis2.databinding.ADBException {
             serialize(parentQName, xmlWriter, false);
         }
 
+        @Override
         public void serialize(final javax.xml.namespace.QName parentQName,
-            javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
+                              javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
             throws javax.xml.stream.XMLStreamException,
                 org.apache.axis2.databinding.ADBException {
             java.lang.String prefix = null;
@@ -1464,8 +1479,9 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                 java.lang.String namespaceuri = "";
 
                 try {
-                    while (!reader.isStartElement() && !reader.isEndElement())
+                    while (!reader.isStartElement() && !reader.isEndElement()) {
                         reader.next();
+                    }
 
                     currentQName = reader.getName();
 
@@ -1505,8 +1521,9 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
 
                     reader.next();
 
-                    while (!reader.isStartElement() && !reader.isEndElement())
+                    while (!reader.isStartElement() && !reader.isEndElement()) {
                         reader.next();
+                    }
 
                     if (reader.isStartElement() &&
                             new javax.xml.namespace.QName("", "data").equals(
@@ -1531,8 +1548,9 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                     else {
                     }
 
-                    while (!reader.isStartElement() && !reader.isEndElement())
+                    while (!reader.isStartElement() && !reader.isEndElement()) {
                         reader.next();
+                    }
 
                     if (reader.isStartElement()) {
                         // 2 - A start element we are not expecting indicates a trailing invalid property
@@ -1594,6 +1612,7 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
          * @param factory
          * @return org.apache.axiom.om.OMElement
          */
+        @Override
         public org.apache.axiom.om.OMElement getOMElement(
             final javax.xml.namespace.QName parentQName,
             final org.apache.axiom.om.OMFactory factory)
@@ -1602,15 +1621,17 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                     this, parentQName));
         }
 
+        @Override
         public void serialize(final javax.xml.namespace.QName parentQName,
-            javax.xml.stream.XMLStreamWriter xmlWriter)
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException,
                 org.apache.axis2.databinding.ADBException {
             serialize(parentQName, xmlWriter, false);
         }
 
+        @Override
         public void serialize(final javax.xml.namespace.QName parentQName,
-            javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
+                              javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
             throws javax.xml.stream.XMLStreamException,
                 org.apache.axis2.databinding.ADBException {
             java.lang.String prefix = null;
@@ -1886,8 +1907,9 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                 java.lang.String namespaceuri = "";
 
                 try {
-                    while (!reader.isStartElement() && !reader.isEndElement())
+                    while (!reader.isStartElement() && !reader.isEndElement()) {
                         reader.next();
+                    }
 
                     currentQName = reader.getName();
 
@@ -1927,8 +1949,9 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
 
                     reader.next();
 
-                    while (!reader.isStartElement() && !reader.isEndElement())
+                    while (!reader.isStartElement() && !reader.isEndElement()) {
                         reader.next();
+                    }
 
                     if (reader.isStartElement() &&
                             new javax.xml.namespace.QName("", "return").equals(
@@ -1954,8 +1977,9 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                     else {
                     }
 
-                    while (!reader.isStartElement() && !reader.isEndElement())
+                    while (!reader.isStartElement() && !reader.isEndElement()) {
                         reader.next();
+                    }
 
                     if (reader.isStartElement()) {
                         // 2 - A start element we are not expecting indicates a trailing invalid property
