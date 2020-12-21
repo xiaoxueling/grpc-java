@@ -99,7 +99,7 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
         __operation = new org.apache.axis2.description.OutInAxisOperation();
 
         __operation.setName(new javax.xml.namespace.QName(
-                "http://localhost:8088/webservices/test", "sayHelloWord"));
+                "http://webService.codenotfound.com/", "sayHelloWord"));
         _service.addOperation(__operation);
 
         _operations[0] = __operation;
@@ -136,10 +136,10 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                     sayHelloWord0,
                     optimizeContent(
                         new javax.xml.namespace.QName(
-                            "http://localhost:8088/webservices/test",
+                            "http://webService.codenotfound.com",
                             "sayHelloWord")),
                     new javax.xml.namespace.QName(
-                        "http://localhost:8088/webservices/test", "sayHelloWord"));
+                        "http://webService.codenotfound.com", "sayHelloWord"));
 
             //adding SOAP soap_headers
             _serviceClient.addHeadersToEnvelope(env);
@@ -246,9 +246,9 @@ public class TestWebServiceStub extends org.apache.axis2.client.Stub {
                 sayHelloWord0,
                 optimizeContent(
                     new javax.xml.namespace.QName(
-                        "http://localhost:8088/webservices/test", "sayHelloWord")),
+                        "http://webService.codenotfound.com/", "sayHelloWord")),
                 new javax.xml.namespace.QName(
-                    "http://localhost:8088/webservices/test", "sayHelloWord"));
+                    "http://webService.codenotfound.com/", "sayHelloWord"));
 
         // adding SOAP soap_headers
         _serviceClient.addHeadersToEnvelope(env);
